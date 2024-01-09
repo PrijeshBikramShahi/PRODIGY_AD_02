@@ -4,8 +4,7 @@ import 'package:trac_to_do/homepage.dart';
 
 void main() async {
   await Hive.initFlutter();
-
-  var box = Hive.openBox('myBox');
+  await Hive.openBox('myBox');
 
   runApp(const MyApp());
 }
