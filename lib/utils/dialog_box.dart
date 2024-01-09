@@ -11,7 +11,7 @@ class DialogBoxa extends StatelessWidget {
      required this.onSave,
   });
 
-  final TextEditingController controller;
+  final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
 
@@ -61,7 +61,7 @@ class DialogBoxa extends StatelessWidget {
                 Expanded(
                   child: MyButton(
                     text: "Save",
-                    onPressed: () {},
+                    onPressed: onSave,
                     icon: const Icon(
                       Icons.add,
                       color: Colors.white,
