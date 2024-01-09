@@ -16,12 +16,6 @@ class _HomePageState extends State<HomePage> {
 
   final _controller = TextEditingController();
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getDate();
-  }
   List toDoList = [
     ['Make Bed', false],
     ['Bath', false],
@@ -41,10 +35,16 @@ class _HomePageState extends State<HomePage> {
     return dateFormat;
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDate();
+  }
 
-  void saveNewTask() async {
+  void saveNewTask() {
     setState(() {
-      toDoList.add([_controller.text, false]);
+      toDoList.add([_controller, false]);
     });
     Navigator.of(context).pop();
   }
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return DialogBoxa(
           controller: _controller,
-          onCancel: () async => Navigator.of(context).pop(),
+          onCancel: () => Navigator.of(context).pop(),
           onSave: saveNewTask,
         );
       },

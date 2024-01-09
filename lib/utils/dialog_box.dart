@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:trac_to_do/utils/color_pallete.dart';
 import 'package:trac_to_do/utils/my_button.dart';
 
-// ignore: must_be_immutable
 class DialogBoxa extends StatelessWidget {
-  final controller;
-  VoidCallback onSave;
-  VoidCallback onCancel;
   DialogBoxa({
     super.key,
     required this.controller,
-    required this.onCancel,
-    required this.onSave,
+     required this.onCancel,
+     required this.onSave,
   });
 
+  final controller;
+  VoidCallback onSave;
+  VoidCallback onCancel;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class DialogBoxa extends StatelessWidget {
                 Expanded(
                   child: MyButton(
                     text: "Cancel",
-                    onPressed: () {},
+                    onPressed: onCancel,
                     icon: Icon(
                       Icons.delete,
                       color: Colors.white,
