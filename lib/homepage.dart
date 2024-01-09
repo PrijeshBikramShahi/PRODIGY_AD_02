@@ -64,6 +64,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,6 +134,7 @@ class _HomePageState extends State<HomePage> {
                 }
               });
             },
+            deleteFunction: (context) => deleteTask(index),
           );
         },
       ),
