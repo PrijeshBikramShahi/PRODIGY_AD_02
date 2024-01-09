@@ -33,7 +33,7 @@ class ToDoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0).copyWith(left: 20,right: 20),
+      padding: const EdgeInsets.all(12.0).copyWith(left: 20, right: 20),
       child: Slidable(
         closeOnScroll: true,
         endActionPane: ActionPane(
@@ -63,7 +63,7 @@ class ToDoTile extends StatelessWidget {
                 color: AppColors.shadowColor.withOpacity(0.6),
                 spreadRadius: 3,
                 blurRadius: 1,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               )
             ],
             color: taskCompletion
@@ -88,6 +88,9 @@ class ToDoTile extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   Padding(
@@ -97,9 +100,7 @@ class ToDoTile extends StatelessWidget {
                           ? "Task Completed at ${getTime()}"
                           : getDate(),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16
-                      ),
+                          fontWeight: FontWeight.w700, fontSize: 16),
                     ),
                   ),
                 ],

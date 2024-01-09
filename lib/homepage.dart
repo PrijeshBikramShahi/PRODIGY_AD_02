@@ -87,26 +87,26 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: const EdgeInsets.only(left: 20.0),
               child: Row(
                 children: [
                   const Text(
                     "Today",
                     style: TextStyle(
                       color: AppColors.todayTextColor,
-                      fontSize: 28,
+                      fontSize: 34,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 8),
                   Text(
                     getDate(),
                     style: const TextStyle(
                         color: AppColors.dateTextColor,
-                        fontSize: 26,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {},
                     child: const Icon(
@@ -146,8 +146,32 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: createNewTask, label: const Icon(Icons.add)),
+      floatingActionButton: InkWell(
+        onTap: createNewTask,
+        splashColor: AppColors.defaultTileColor,
+        child: Container(
+          height: 75,
+          width: 75,
+          decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.8,
+                color: Colors.black,
+              ),
+              color: AppColors.todayTextColor,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.shadowColor.withOpacity(0.5),
+                  offset: const Offset(1, 3),
+                  spreadRadius: 2,
+                )
+              ]),
+          child: const Icon(
+            Icons.add_rounded,
+            size: 50,
+          ),
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
