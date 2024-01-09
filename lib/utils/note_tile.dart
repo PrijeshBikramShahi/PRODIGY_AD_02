@@ -17,12 +17,13 @@ class ToDoTile extends StatelessWidget {
     String dateFormat = DateFormat('hh:mm a, EEE(MMM d)').format(date);
     return dateFormat;
   }
+
   String getTime() {
     final date = DateTime.now();
     String dateFormat = DateFormat('hh:mm a').format(date);
     return dateFormat;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,17 +41,27 @@ class ToDoTile extends StatelessWidget {
             Row(
               children: [
                 Checkbox(value: taskCompletion, onChanged: onChanged),
-                Text(taskName,style: TextStyle(
-                  fontSize: 18,
-                  decoration: taskCompletion? TextDecoration.lineThrough : TextDecoration.none,
-                ),),
+                Text(
+                  taskName,
+                  style: TextStyle(
+                    fontSize: 18,
+                    decoration: taskCompletion
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                  ),
+                ),
               ],
             ),
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 13.0, bottom: 10),
-                  child: Text(taskCompletion? "Task Completed at ${getTime()}" : getDate(),style: const TextStyle(),),
+                  child: Text(
+                    taskCompletion
+                        ? "Task Completed at ${getTime()}"
+                        : getDate(),
+                    style: const TextStyle(),
+                  ),
                 ),
               ],
             ),
