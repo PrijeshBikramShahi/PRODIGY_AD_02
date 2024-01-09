@@ -28,7 +28,7 @@ class ToDoTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(14.0),
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: taskCompletion
               ? AppColors.checkedTileColor
@@ -50,7 +50,7 @@ class ToDoTile extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 13.0, bottom: 10),
-                  child: Text(taskCompletion? "Task Completed at " + getTime() : getDate(),style: TextStyle(),),
+                  child: Text(taskCompletion? "Task Completed at ${getTime()}" : getDate(),style: const TextStyle(),),
                 ),
               ],
             ),

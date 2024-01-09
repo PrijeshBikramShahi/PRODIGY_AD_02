@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     getDate();
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(left: 15.0),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     "Today",
                     style: TextStyle(
                       color: AppColors.todayTextColor,
@@ -82,18 +83,18 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     getDate(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: AppColors.dateTextColor,
                         fontSize: 26,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   GestureDetector(
                     onTap: () {},
-                    child: Icon(
+                    child: const Icon(
                       Icons.add,
                       size: 35,
                       color: AppColors.dateAddColor,
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             )
           ],
@@ -130,7 +131,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-          onPressed: createNewTask, label: Icon(Icons.add)),
+          onPressed: createNewTask, label: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }

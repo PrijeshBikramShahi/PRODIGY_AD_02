@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trac_to_do/utils/color_pallete.dart';
 import 'package:trac_to_do/utils/my_button.dart';
 
+// ignore: must_be_immutable
 class DialogBoxa extends StatelessWidget {
   DialogBoxa({
     super.key,
@@ -10,7 +11,7 @@ class DialogBoxa extends StatelessWidget {
      required this.onSave,
   });
 
-  final controller;
+  final TextEditingController controller;
   VoidCallback onSave;
   VoidCallback onCancel;
 
@@ -18,7 +19,7 @@ class DialogBoxa extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.checkedTileColor,
-      content: Container(
+      content: SizedBox(
         height: 130,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -26,7 +27,7 @@ class DialogBoxa extends StatelessWidget {
           children: [
             TextField(
               controller: controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -48,20 +49,20 @@ class DialogBoxa extends StatelessWidget {
                   child: MyButton(
                     text: "Cancel",
                     onPressed: onCancel,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                   child: MyButton(
                     text: "Save",
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),

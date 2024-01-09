@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trac_to_do/homepage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
