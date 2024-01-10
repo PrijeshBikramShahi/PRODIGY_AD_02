@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return DialogBoxa(
           controller: _controller,
-          onCancel: () => Navigator.of(context).pop(),
+          onCancel: () {
+            _controller.clear();
+            Navigator.of(context).pop();
+          },
           onSave: saveNewTask,
         );
       },
@@ -85,7 +88,10 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
           return EditBox(
             controller: _controller,
-            onCancel: () => Navigator.of(context).pop(),
+            onCancel: () {
+              _controller.clear();
+              Navigator.of(context).pop();
+            },
             onDone: () {
               setState(() {
                 db.toDoList[index][0] = _controller.text;
