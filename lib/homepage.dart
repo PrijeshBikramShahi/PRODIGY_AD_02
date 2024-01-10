@@ -88,13 +88,12 @@ class _HomePageState extends State<HomePage> {
             onCancel: () => Navigator.of(context).pop(),
             onDone: () {
               setState(() {
-                db.toDoList[index][0]=_controller.text;
+                db.toDoList[index][0] = _controller.text;
               });
               Navigator.of(context).pop();
             },
           );
         });
-
   }
 
   @override

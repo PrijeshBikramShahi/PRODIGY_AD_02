@@ -10,8 +10,8 @@ class ToDoTile extends StatelessWidget {
     required this.taskCompletion,
     this.onChanged,
     this.deleteFunction,
-    this.editFunction,
-  });
+    this.editFunction, });
+
   final String taskName;
   final bool taskCompletion;
   final Function(bool?)? onChanged;
@@ -76,7 +76,6 @@ class ToDoTile extends StatelessWidget {
               Row(
                 children: [
                   Checkbox(value: taskCompletion, onChanged: onChanged),
-
                   Text(
                     taskName,
                     style: TextStyle(
