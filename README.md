@@ -1,6 +1,6 @@
 # trac_to_do
 
-A new Flutter project.
+A To-Do App with Hive as local storage.
 
 ## Getting Started
 
