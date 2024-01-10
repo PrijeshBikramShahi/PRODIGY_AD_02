@@ -7,8 +7,8 @@ class DialogBoxa extends StatelessWidget {
   DialogBoxa({
     super.key,
     required this.controller,
-     required this.onCancel,
-     required this.onSave,
+    required this.onCancel,
+    required this.onSave,
   });
 
   final controller;
@@ -17,62 +17,70 @@ class DialogBoxa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: AppColors.checkedTileColor,
-      content: SizedBox(
-        height: 130,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                label: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: AppColors.butIconColor,
-                    ),
-                    Text("Add your Task"),
-                  ],
-                ),
-                labelStyle: TextStyle(),
-                border: OutlineInputBorder(),
+    return Stack(children: [
+      Center(
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+                width: 4,
               ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(
-                  child: MyButton(
-                    text: "Cancel",
-                    onPressed: onCancel,
-                    icon: const Icon(
-                      Icons.delete,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Expanded(
-                  child: MyButton(
-                    text: "Save",
-                    onPressed: onSave,
-                    icon: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+              borderRadius: BorderRadius.circular(32)),
+          width: 287,
+          height: 189,
         ),
       ),
-    );
+      AlertDialog(
+        backgroundColor: AppColors.todayTextColor,
+        content: SizedBox(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextField(
+                expands: false,
+                controller: controller,
+                decoration: const InputDecoration(
+                  label: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: Colors.black,
+                      ),
+                      Text("Add your Task"),
+                    ],
+                  ),
+                  labelStyle: TextStyle(),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    child: MyButton(
+                      text: "Cancel",
+                      onPressed: onCancel,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    child: MyButton(
+                      text: "Save",
+                      onPressed: onSave,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ]);
   }
 }
