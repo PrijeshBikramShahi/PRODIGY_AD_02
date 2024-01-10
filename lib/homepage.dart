@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trac_to_do/hive_storage/database.dart';
 import 'package:trac_to_do/utils/color_pallete.dart';
 import 'package:trac_to_do/utils/dialog_box.dart';
+import 'package:trac_to_do/utils/edit_bx.dart';
 import 'package:trac_to_do/utils/note_tile.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
@@ -78,6 +79,24 @@ class _HomePageState extends State<HomePage> {
     db.updateDataBase();
   }
 
+  void editTask(int index) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return EditBox(
+            controller: _controller,
+            onCancel: () => Navigator.of(context).pop(),
+            onDone: () {
+              setState(() {
+                db.toDoList[index][0]=_controller.text;
+              });
+              Navigator.of(context).pop();
+            },
+          );
+        });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,6 +162,7 @@ class _HomePageState extends State<HomePage> {
               });
             },
             deleteFunction: (context) => deleteTask(index),
+            editFunction: (context) => editTask(index),
           );
         },
       ),

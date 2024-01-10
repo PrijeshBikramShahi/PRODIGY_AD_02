@@ -11,6 +11,7 @@ class DialogBoxa extends StatelessWidget {
     required this.onSave,
   });
 
+  // ignore: prefer_typing_uninitialized_variables
   final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
